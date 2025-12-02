@@ -44,8 +44,8 @@ const SeedDB = {
       },],
       email: "vulongpt@gmail.com",
       phone: "0389926795",
-      bg: '/assets/images/bgg.webp',
-      bg_fb: '/assets/images/bgg.webp',
+      bg: '/assets/images/170e.jpg',
+      bg_fb: '/assets/images/170e.jpg',
       us: "chúng tôi"
     },
     female: {
@@ -80,8 +80,8 @@ const SeedDB = {
       finances: [],
       email: "nguyenthihatrang.na@gmail.com",
       phone: "0372667055",
-      bg: '/assets/images/bgg.webp',
-      bg_fb: '/assets/images/bgg.webp',
+      bg: '/assets/images/170e.jpg',
+      bg_fb: '/assets/images/170e.jpg',
       us: "chúng tôi"
     },
     default: true
