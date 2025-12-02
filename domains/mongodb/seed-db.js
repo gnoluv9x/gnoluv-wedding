@@ -3,33 +3,33 @@ const SeedDB = {
   user: {
     email: "admin@invitation.com",
     username: "admin",
-    password: "$2b$10$VhmfGtzS9/IZPQuLQhmXkeTZmXrHYjIV2HCRfsOEp66Yk/OJiwow2", //123qwe
-    password_confirm: "$2b$10$VhmfGtzS9/IZPQuLQhmXkeTZmXrHYjIV2HCRfsOEp66Yk/OJiwow2",
+    password: "$2a$10$vR3uDX0WHwzfg3JT9XhZd.9jFwTz2sIExfCsneF2lzyKtVDB/Hlya", //Vuejs@2025
+    password_confirm: "$2a$10$vR3uDX0WHwzfg3JT9XhZd.9jFwTz2sIExfCsneF2lzyKtVDB/Hlya",
     role: "admin"
   },
   dataConfig: {
     male: {
-      name: "Nguyễn Văn An",
+      name: "Vũ Doãn Long",
       parent: {
-        father: "Họ Tên Bố",
-        mother: "Họ Tên Mẹ"
+        father: "Vũ Thành Đô",
+        mother: "Đõ Thị Liên"
       },
       location: {
-        text: "Quảng Yên - Quảng Ninh - Việt Nam",
-        map: "https://goo.gl/maps/tTZz4qKhaiqSL8Q66"
+        text: "Ga Tiên Kiên - Lâm Thao - Phú Thọ",
+        map: "https://maps.app.goo.gl/v1MmgS96DoGoM5s28"
       },
       time_start: {
         date: {
           lunar: {
-            day: "17",
-            month: "12",
-            year: "2020"
+            day: "02",
+            month: "11",
+            year: "2025"
           },
-          day_of_week: "5",
+          day_of_week: "7",
           solar: {
-            day: "17",
+            day: "21",
             month: "12",
-            year: "2020"
+            year: "2025"
           }
         },
         time: {
@@ -38,49 +38,38 @@ const SeedDB = {
         }
       },
       finances: [{
-        provider_name: "MB Bank",
-        provider_number: "9971997555555",
-        holder_name: "NGUYEN VAN AN"
-      }, {
         provider_name: "Techcombank",
-        provider_number: "19034892842011",
-        holder_name: "NGUYEN VAN AN"
-      }, {
-        provider_name: "Momo",
-        provider_number: "0973699999",
-        holder_name: "NGUYEN VAN AN"
-      }, {
-        provider_name: "Airpay",
-        provider_number: "0973699999",
-        holder_name: "NGUYEN VAN AN"
-      }],
-      email: "male@gmail.com",
-      phone: "0973699999",
-      bg: '/assets/images/bg.jpg',
-      bg_fb: '/assets/images/bg-fb.jpg'
+        provider_number: "19030709044033",
+        holder_name: "VU DOAN LONG"
+      },],
+      email: "vulongpt@gmail.com",
+      phone: "0389926795",
+      bg: '/assets/images/bgg.webp',
+      bg_fb: '/assets/images/bgg.webp',
+      us: "chúng tôi"
     },
     female: {
-      name: "Nguyễn Thị Lan Anh",
+      name: "Nguyễn Thị Hà Trang",
       parent: {
-        father: "Họ Tên Bố",
-        mother: "Họ Tên Mẹ"
+        father: "Nguyễn Văn Quang",
+        mother: "Nguyễn Thị Vinh"
       },
       location: {
-        text: "Quốc Oai - Hà Nội - Việt Nam",
-        map: "https://goo.gl/maps/tRjKuVRNisqxhQaT7"
+        text: "Nghĩa Hoàn - Tân Kỳ - Nghệ An",
+        map: "https://maps.app.goo.gl/UcEuxBFc4VstxFz79"
       },
       time_start: {
         date: {
           lunar: {
-            day: "17",
+            day: "02",
             month: "12",
-            year: "2020"
+            year: "2025"
           },
-          day_of_week: "5",
+          day_of_week: "7",
           solar: {
-            day: "17",
+            day: "21",
             month: "12",
-            year: "2020"
+            year: "2025"
           }
         },
         time: {
@@ -88,27 +77,12 @@ const SeedDB = {
           minute: "00"
         }
       },
-      finances: [{
-        provider_name: "Techcombank",
-        provider_number: "19033799999999",
-        holder_name: "NGUYEN THI LAN ANH"
-      }, {
-        provider_name: "Techcombank",
-        provider_number: "19033799999999",
-        holder_name: "NGUYEN THI LAN ANH"
-      }, {
-        provider_name: "Momo",
-        provider_number: "09736",
-        holder_name: "NGUYEN THI LAN ANH"
-      }, {
-        provider_name: "Airpay",
-        provider_number: "0973699999",
-        holder_name: "NGUYEN VAN AN"
-      }],
-      email: "female@gmail.com",
-      phone: "0985123123",
-      bg: '/assets/images/bg.jpg',
-      bg_fb: '/assets/images/bg-fb.jpg'
+      finances: [],
+      email: "nguyenthihatrang.na@gmail.com",
+      phone: "0372667055",
+      bg: '/assets/images/bgg.webp',
+      bg_fb: '/assets/images/bgg.webp',
+      us: "chúng tôi"
     },
     default: true
   }

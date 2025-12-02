@@ -36,21 +36,18 @@
               <tr>
                 <th scope="row"><%= i+1 %></th>
                 <td>
-                  <a target="_blank" style="cursor: pointer;"
-                    href="<%= '/invitation/'+ invitees[i]._id %>"><%= invitees[i].name %></a>
+                  <a target="_blank" style="cursor: pointer;" href="<%= '/invitation/'+ invitees[i]._id %>"><%= invitees[i].name %></a>
                 </td>
                 <th><%= invitees[i].level %></th>
                 <th><%= invitees[i].area == 1?"Nhà Trai" : "Nhà Gái"%></th>
                 <th><%= invitees[i].message %></th>
                 <td class="text-center " style="width: 300px;">
 
-                  <button type="button" class="btn  btn-success"
-                    data-clipboard-text="<%= uri + '/invitation/'+ invitees[i]._id %>">
+                  <button type="button" class="btn  btn-success" data-clipboard-text="<%= uri + '/invitation/'+ invitees[i]._id %>">
                     Get Link
                   </button>
 
-                  <button type="button" class="btn btn-success"
-                    onclick="openModal(true, '<%= invitees[i]._id %>')">Edit</button>
+                  <button type="button" class="btn btn-success" onclick="openModal(true, '<%= invitees[i]._id %>')">Edit</button>
                   <button type="button" class="btn btn-warning" onclick="del('<%= invitees[i]._id %>')">Delete</button>
                 </td>
               </tr>
@@ -65,8 +62,7 @@
 </div>
 
 <!--  Modal content for the above example -->
-<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true" id="myModal">
+<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,6 +90,10 @@
             <input type="text" class="form-control" id="txtMessage" placeholder="Enter message">
           </div>
           <div class="form-group">
+            <label for="callUs">chúng tôi</label>
+            <input type="text" class="form-control" id="callUs" placeholder="...chúng tôi">
+          </div>
+          <div class="form-group">
             <label for="exampleInputPassword1">Area</label>
             <select class="form-control" id="slArea">
               <option>Select</option>
@@ -114,11 +114,10 @@
   <!-- /.modal -->
 </div>
 <script>
-
   var clipboard = new ClipboardJS('.btn');
 
-  clipboard.on('success', function (e) {
+  clipboard.on('success', function(e) {
     notify.push("Copied", notify.EType.SUCCESS);
-  }); 
+  });
 </script>
 <script src="/assets/js/live/invitation/action.js"></script>

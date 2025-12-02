@@ -1,5 +1,5 @@
 const DataConfig = {
-    URI: 'https://wedding.sauanla.com'
+  URI: 'https://longdev.io.vn'
 };
 
 module.exports = DataConfig;

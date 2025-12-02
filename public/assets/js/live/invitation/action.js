@@ -29,6 +29,7 @@ function createInvitee() {
     message: $('#txtMessage').val(),
     level: $('#txtLevel').val(),
     area: $('#slArea').val(),
+    us: $('#callUs').val(),
   };
 
 
@@ -47,7 +48,7 @@ function createInvitee() {
       } else {
         $('#exampleModal').modal('hide');
         notify.push(data.success, notify.EType.DANGER);
-        setTimeout(function () { 
+        setTimeout(function () {
           notify.done();
         }, 2000);
       }
@@ -86,7 +87,7 @@ function updateInvitee() {
         }, 500);
       } else {
         $('#exampleModal').modal('hide');
-        const msg = (response.messageList && response.messageList.length > 0) ? response.messageList[0].text: "Erros";
+        const msg = (response.messageList && response.messageList.length > 0) ? response.messageList[0].text : "Erros";
         notify.push(msg, notify.EType.DANGER);
         setTimeout(function () {
           notify.done();
@@ -136,9 +137,9 @@ function del(id) {
           notify.done();
         }, 500);
       } else {
-        const msg = (response.messageList && response.messageList.length > 0) ? response.messageList[0].text: "Erros";
+        const msg = (response.messageList && response.messageList.length > 0) ? response.messageList[0].text : "Erros";
         notify.push(msg, notify.EType.DANGER);
-        setTimeout(function () { 
+        setTimeout(function () {
           notify.done();
         }, 2000);
       }

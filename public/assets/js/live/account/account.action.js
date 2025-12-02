@@ -21,7 +21,7 @@ function login() {
         }, 1000);
       } else {
         notify.done();
-        notify.push(response.messageList[0].text, notify.EType.DANGER);
+        notify.push(response.messageList[0].text.text, notify.EType.DANGER);
       }
     },
     error: (jqXHR, textStatus) => {
