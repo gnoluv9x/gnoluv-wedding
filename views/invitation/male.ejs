@@ -474,7 +474,7 @@
         // chọn vị trí ngẫu nhiên nằm trong vùng giữa màn hình
         const x = rand(w * 0.15, w * 0.85);
         const y = rand(h * 0.12, h * 0.45);
-        const bursts = 1 + Math.floor(rand(0, 3)); // số rocket mỗi lần
+        const bursts = 1 + Math.floor(rand(0, 2)); // số rocket mỗi lần
         for (let i = 0; i < bursts; i++) {
           setTimeout(() => {
             launchTo(x + rand(-80, 80), Math.max(h * 0.12, y + rand(-60, 60)));

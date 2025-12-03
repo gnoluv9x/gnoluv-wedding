@@ -6,7 +6,7 @@ function openModal(isEdit, id) {
     $('#myModal').modal('show');
     $('#txtId').val(null);
     $('#txtName').val('');
-    $('#txtLevel').val("Vợ chồng");
+    $('#txtLevel').val("vợ chồng");
     $('#txtMessage').val('');
     $('#slArea').val('1');
   }
