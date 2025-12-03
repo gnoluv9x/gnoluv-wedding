@@ -455,6 +455,10 @@
   padding-top: 10px;
 }
 
+.card-information .address-map {
+  display: none;
+}
+
 .card-wrap .card-header-name {
   font-family: wedding-font-vni;
   font-size: 35px;
@@ -612,7 +616,6 @@
   color: white;
 }
 
-
 @media only screen and (min-width: 960px) {
 
   .card-welcome-all {
@@ -636,11 +639,36 @@
   .bg-bottom-left {
     /* how to add blur for 2 images */
     filter: blur(1px);
+    width: 150px;
+  }
+
+  .bg-bottom-left {
+    bottom: -23px;
+    left: -32px;
   }
 
   .wrap-footer {
     padding-top: 15px;
     margin-bottom: 1rem;
+  }
+
+  .card-invite {
+    padding: 3%;
+  }
+
+  .card-information .address-map {
+    display: block;
+  }
+
+  .card-information .map-icon {
+    color: #000;
+  }
+
+  .card-information .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .open-book {
