@@ -382,11 +382,15 @@
 }
 
 .card-welcome-invite-name {
-  bottom: 0px;
+  bottom: 2px;
   font-family: wedding-font-vni;
   position: absolute;
   font-size: 25px;
   z-index: 1000;
+  text-align: center;
+  width: 100%;
+  left: 2px;
+  right: 2px;
 }
 
 .card-header-inviter.name {
