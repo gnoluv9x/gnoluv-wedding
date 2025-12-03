@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-  <title> Kính mời <%= (data.invitee !==null) ? data.invitee.name : "" %>
+  <title> Thiệp mời <%= (data.invitee !==null) ? data.invitee.name : "" %>
   </title>
 
   <meta proeperty="og:url" content="https://longdev.io.vn" />
@@ -17,8 +17,10 @@
   <meta property="og:image:height" content="702" />
   <meta property="fb:admins" content="100004574107394" />
   <meta property="og:updated_time" content="<%= +new Date() %>" />
-  <meta name="keywords" content='Kính mời <%= (data.invitee !== null) ? data.invitee.name : "" %>' />
-  <meta name="description" content="Sự hiện diện của quý vị là niềm vinh dự lớn cho gia đình Chúng tôi" />
+  <meta name="keywords" content='Thiệp mời <%= (data.invitee !== null) ? data.invitee.name : "" %>' />
+  <meta name="description" content="Trang & Long Wedding" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png" />
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="/assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
   <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
@@ -40,6 +42,63 @@
       opacity: 0.75;
       background-image: url('<%= data.cfg.male.bg %>');
       background-size: cover;
+      background-position: right;
+    }
+
+    /* Mobile scroll button */
+    #scroll-down-btn {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 28px;
+      background: transparent;
+      /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); */
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 11000;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      border: none;
+    }
+
+    #scroll-down-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #333;
+    }
+
+    /* Bounce animation */
+    @keyframes bounce-down {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    /* Apply animations to button */
+    #scroll-down-btn {
+      animation: bounce-down 2s infinite, pulse-ring 2s infinite;
+    }
+
+    /* iOS haptic feedback visual feedback */
+    #scroll-down-btn:active {
+      transform: translateX(-50%) scale(0.95);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      #scroll-down-btn {
+        display: flex;
+      }
     }
   </style>
 
@@ -200,6 +259,28 @@
   </div>
 
 
+  <!-- Mobile scroll button (bottom center) -->
+  <button id="scroll-down-btn" aria-label="Scroll down" title="Scroll down">
+    <!-- chevron down SVG with gradient glossy effect -->
+    <svg width="800px" height="800px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chevronGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+          <stop offset="50%" style="stop-color:#f5f5f5;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:0.9" />
+        </linearGradient>
+        <filter id="chevronGlow">
+          <feGaussianBlur stdDeviation="0.5" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.85355 2.14645C3.65829 1.95118 3.34171 1.95118 3.14645 2.14645C2.95118 2.34171 2.95118 2.65829 3.14645 2.85355L7.14645 6.85355C7.34171 7.04882 7.65829 7.04882 7.85355 6.85355L11.8536 2.85355C12.0488 2.65829 12.0488 2.34171 11.8536 2.14645C11.6583 1.95118 11.3417 1.95118 11.1464 2.14645L7.5 5.79289L3.85355 2.14645ZM3.85355 8.14645C3.65829 7.95118 3.34171 7.95118 3.14645 8.14645C2.95118 8.34171 2.95118 8.65829 3.14645 8.85355L7.14645 12.8536C7.34171 13.0488 7.65829 13.0488 7.85355 12.8536L11.8536 8.85355C12.0488 8.65829 12.0488 8.34171 11.8536 8.14645C11.6583 7.95118 11.3417 7.95118 11.1464 8.14645L7.5 11.7929L3.85355 8.14645Z" fill="url(#chevronGradient)" filter="url(#chevronGlow)" />
+    </svg>
+  </button>
+
   <!-- END wrapper -->
   <!-- jQuery  -->
   <script src="/assets/js/jquery.min.js"></script>
@@ -331,7 +412,7 @@
         const target = Math.max((y || h * 0.25) - 120, h * 0.12);
         // tạo rocket với flag để vẽ dạng elongated + trail
         rockets.push({
-          p: new Particle(startX, startY, vx, vy, 'rgba(255,200,80,1)', 0, {
+          p: new Particle(startX, startY, vx, vy, '#FF2E2E', 0, {
             rocket: true,
             size: 2
           }),
@@ -460,6 +541,54 @@
           // no-op (loop will still run but particles won't be added)
         }
       });
+    })();
+  </script>
+  <script>
+    (function() {
+      function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+      }
+      const btn = document.getElementById('scroll-down-btn');
+      if (!btn) return;
+
+      // show only on mobile
+      if (!isMobile()) {
+        btn.style.display = 'none';
+      } else {
+        btn.style.display = 'flex';
+      }
+
+      // scroll down one viewport height smoothly
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetY = window.scrollY + window.innerHeight;
+        window.scrollTo({
+          top: targetY,
+          behavior: 'smooth'
+        });
+      }, {
+        passive: true
+      });
+
+      // hide when near bottom, show otherwise
+      function updateVisibility() {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 60) {
+          btn.style.opacity = '0';
+          btn.style.pointerEvents = 'none';
+        } else {
+          if (isMobile()) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+          }
+        }
+      }
+      window.addEventListener('scroll', updateVisibility, {
+        passive: true
+      });
+      window.addEventListener('resize', updateVisibility, {
+        passive: true
+      });
+      updateVisibility();
     })();
   </script>
 </body>
