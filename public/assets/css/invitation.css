@@ -455,7 +455,7 @@
   padding-top: 10px;
 }
 
-.card-information .address-map {
+.card-information .map-icon {
   display: none;
 }
 
@@ -656,11 +656,8 @@
     padding: 3%;
   }
 
-  .card-information .address-map {
-    display: block;
-  }
-
   .card-information .map-icon {
+    display: block;
     color: #000;
   }
 
@@ -669,6 +666,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    color: #000;
   }
 
   .open-book {

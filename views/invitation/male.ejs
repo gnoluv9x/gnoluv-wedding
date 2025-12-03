@@ -203,12 +203,11 @@
                         %>/
                   <%= data.cfg.male.time_start.date.lunar.month %> âm lịch)</span>
                 <div style="padding-top:10px">Tại Nhà Trai</div>
-                <div class="address">
+
+                <a class="address" style="padding-top: 5px" href="<%= data.cfg.male.location.map %>" target="_blank">
                   <%= data.cfg.male.location.text %>
-                  <a class="address-map" style="padding-top: 5px" href="<%= data.cfg.male.location.map %>" target="_blank">
-                    <i class="map-icon ti-location-pin"></i>
-                  </a>
-                </div>
+                  <i class="map-icon ti-location-pin"></i>
+                </a>
 
               </div>
               <div class="end-row"> ======================</div>
