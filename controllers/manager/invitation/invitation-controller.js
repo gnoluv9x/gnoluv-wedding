@@ -20,6 +20,7 @@ class InvitationController extends BaseController {
 
     try {
       let data = await this._facade.getListInvitee();
+      console.log("Debug_here data: ", data);
 
       res.render('manager/invitation/index', {
         invitees: data,

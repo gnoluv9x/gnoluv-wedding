@@ -495,7 +495,6 @@
 
 .wrap-footer {
   margin: 0 auto;
-  padding-top: 15px;
   padding-top: 25px;
 }
 
@@ -623,6 +622,27 @@
 }
 
 @media only screen and (max-device-width: 480px) {
+  .card-welcome {
+    height: 100dvh;
+  }
+
+  .footer-information {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 1.5rem;
+  }
+
+  .bg-top-right,
+  .bg-bottom-left {
+    /* how to add blur for 2 images */
+    filter: blur(1px);
+  }
+
+  .wrap-footer {
+    padding-top: 15px;
+    margin-bottom: 1rem;
+  }
+
   .open-book {
     padding: 5px;
   }

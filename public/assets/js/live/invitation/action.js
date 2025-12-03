@@ -68,6 +68,7 @@ function updateInvitee() {
     message: $('#txtMessage').val(),
     level: $('#txtLevel').val(),
     area: $('#slArea').val(),
+    us: $('#callUs').val(),
   };
   notify.loading();
 
@@ -115,6 +116,7 @@ function getData(id) {
         $('#myModal').modal('show');
         $('#IsEdit').val(true);
         $('#txtId').val(id);
+        $('#callUs').val(data.us);
       } else {
         console.log('K lay dc du lieu');
       }

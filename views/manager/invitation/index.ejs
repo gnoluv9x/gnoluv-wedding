@@ -27,6 +27,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Level</th>
                 <th scope="col">Area</th>
+                <th scope="col">Us</th>
                 <th scope="col">Message</th>
                 <th scope="col" class="text-center">Action</th>
               </tr>
@@ -38,9 +39,10 @@
                 <td>
                   <a target="_blank" style="cursor: pointer;" href="<%= '/invitation/'+ invitees[i]._id %>"><%= invitees[i].name %></a>
                 </td>
-                <th><%= invitees[i].level %></th>
-                <th><%= invitees[i].area == 1?"Nhà Trai" : "Nhà Gái"%></th>
-                <th><%= invitees[i].message %></th>
+                <td><%= invitees[i].level %></td>
+                <td><%= invitees[i].level %></td>
+                <td><%= invitees[i].us %></td>
+                <td><%= invitees[i].message %></td>
                 <td class="text-center " style="width: 300px;">
 
                   <button type="button" class="btn  btn-success" data-clipboard-text="<%= uri + '/invitation/'+ invitees[i]._id %>">
@@ -91,7 +93,7 @@
           </div>
           <div class="form-group">
             <label for="callUs">chúng tôi</label>
-            <input type="text" class="form-control" id="callUs" placeholder="...chúng tôi">
+            <input type="text" class="form-control" id="callUs" placeholder="">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Area</label>
