@@ -175,6 +175,9 @@
 
 
 <body>
+  <audio id="player" autoplay loop>
+    <source src="/assets/audio/beauti2.mp3" type="audio/mp3">
+  </audio>
 
   <div id="wrapper">
     <div id="container">
@@ -662,6 +665,10 @@
         passive: true
       });
       updateVisibility();
+
+      window.addEventListener("click", () => {
+        document.getElementById("player").play();
+      });
     })();
   </script>
 </body>
