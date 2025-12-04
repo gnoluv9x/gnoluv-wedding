@@ -100,6 +100,75 @@
         display: flex;
       }
     }
+
+    /* Wedding-themed text animation: rainbow gradient + elegant glow */
+    .card-welcome-text {
+      font-family: wedding-font-vni;
+      font-size: 40px;
+      position: relative;
+      display: inline-block;
+      color: #2b2b2b;
+      animation: rainbow-text 4s linear infinite, elegant-glow 3.5s ease-in-out infinite;
+      will-change: background-position, text-shadow;
+      background: linear-gradient(90deg,
+          #FF6B6B 0%,
+          #FF8C42 15%,
+          #FF6EC7 30%,
+          #A78BFA 45%,
+          #60A5FA 60%,
+          #34D399 75%,
+          #FBBF24 90%,
+          #FF6B6B 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes rainbow-text {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    @keyframes elegant-glow {
+      0% {
+        text-shadow: 0 0 10px rgba(255, 182, 193, 0.3),
+          0 0 20px rgba(255, 105, 180, 0.0);
+        opacity: 0.85;
+      }
+
+      50% {
+        text-shadow: 0 0 20px rgba(255, 182, 193, 0.6),
+          0 0 40px rgba(255, 105, 180, 0.35),
+          0 0 60px rgba(255, 192, 203, 0.2);
+        opacity: 1;
+      }
+
+      100% {
+        text-shadow: 0 0 10px rgba(255, 182, 193, 0.3),
+          0 0 20px rgba(255, 105, 180, 0.0);
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes light-shine {
+      0% {
+        background-position: -200% 0;
+      }
+
+      50% {
+        background-position: 100% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
   </style>
 
 </head>
@@ -117,7 +186,7 @@
             <img class="bg-bottom-left" src="/assets/images/right-top.png" /> -->
 
 
-            <div class="share-buttons">
+            <!-- <div class="share-buttons">
               <a style="padding-top: 5px" href="<%= data.cfg.male.location.map %>" target="_blank">
                 <div class="share-button">
                   <div class="share-button-secondary">
@@ -130,13 +199,13 @@
                   </div>
                 </div>
               </a>
-            </div>
+            </div> -->
 
             <div class="wrap-card-welcome">
 
               <div class="card-welcome-header">
                 <div class="card-welcome-text vni">
-                  Wedding
+                  Wedding Celebrating
                 </div>
                 <!-- <div class="card-welcome-date">
                   <%= data.cfg.male.time_start.date.lunar.day %>
@@ -149,8 +218,9 @@
               </div>
 
               <div class="card-welcome-invite-name vni">
-                <%= (data.mode==2 ? "Kính mời: " + data.invitee.name
-                  : "Kính mời ...................." ) %>
+                <span>Vũ Long</span>
+                <span class="heart-container">❤️</span>
+                <span>Hà Trang</span>
               </div>
             </div>
 
@@ -191,18 +261,19 @@
                         data.cfg.male.time_start.time.hour %> giờ
                   <%= data.cfg.male.time_start.time.minute %>"</span>
                 <div class="information-time">
-                  <span class="week vni">Ngày
-                  </span>
-                  <span class="day btn">
-                    <%= data.cfg.male.time_start.date.solar.day %>
-                  </span>
-                  <span class="month vni">Tháng <%= data.cfg.male.time_start.date.solar.month %>
-                  </span>
+                  <div class="vni day_of_week">Chủ nhật</div>
+                  <div>
+                    <span class="week vni">Ngày</span>
+                    <span class="day btn">
+                      <%= data.cfg.male.time_start.date.solar.day %>
+                    </span>
+                    <span class="month vni">Tháng <%= data.cfg.male.time_start.date.solar.month %></span>
+                  </div>
                 </div>
                 <span class="detail-time">(Tức ngày <%= data.cfg.male.time_start.date.lunar.day
                         %>/
                   <%= data.cfg.male.time_start.date.lunar.month %> âm lịch)</span>
-                <div style="padding-top:10px">Tại Nhà Trai</div>
+                <div style="padding-top:10px">Tại tư gia Nhà Trai</div>
 
                 <a class="address" style="padding-top: 5px" href="<%= data.cfg.male.location.map %>" target="_blank">
                   <%= data.cfg.male.location.text %>

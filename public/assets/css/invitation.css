@@ -385,7 +385,7 @@
   bottom: 2px;
   font-family: wedding-font-vni;
   position: absolute;
-  font-size: 25px;
+  font-size: 18px;
   z-index: 1000;
   text-align: center;
   width: 100%;
@@ -459,18 +459,15 @@
   padding-top: 10px;
 }
 
-.card-information .map-icon {
-  display: none;
-}
-
 .card-wrap .card-header-name {
   font-family: wedding-font-vni;
   font-size: 35px;
 }
 
 .information-time {
-  padding: 15px 0px;
+  padding: 10px 0px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -490,6 +487,13 @@
   border-bottom: double;
   padding: 0 10px;
   font-size: 20px;
+  min-width: 80px;
+  display: inline-block;
+}
+
+.information-time .day_of_week {
+  font-size: 20px;
+  margin-top: 5px;
 }
 
 .end-row {
@@ -618,6 +622,34 @@
   margin: 5px 5px;
   font-size: 12px;
   color: white;
+}
+
+.heart-container {
+  font-size: 100px;
+  animation: heartbeat 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.3);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.3);
+  }
+
+  70% {
+    transform: scale(1);
+  }
 }
 
 @media only screen and (min-width: 960px) {
