@@ -630,6 +630,17 @@
   filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
 }
 
+.qr-code-bank {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.qr-code-bank svg {
+  width: 25px;
+  height: 25px;
+}
+
 @keyframes heartbeat {
   0% {
     transform: scale(1);

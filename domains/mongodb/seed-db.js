@@ -10,9 +10,10 @@ const SeedDB = {
   dataConfig: {
     male: {
       name: "Vũ Doãn Long",
+      qr: "/assets/images/qr-male.jpg",
       parent: {
         father: "Vũ Thành Đô",
-        mother: "Đõ Thị Liên"
+        mother: "Đỗ Thị Liên"
       },
       location: {
         text: "Ga Tiên Kiên - Lâm Thao - Phú Thọ",
@@ -50,6 +51,7 @@ const SeedDB = {
     },
     female: {
       name: "Nguyễn Thị Hà Trang",
+      qr: "/assets/images/qr-female.jpg",
       parent: {
         father: "Nguyễn Văn Quang",
         mother: "Nguyễn Thị Vinh"

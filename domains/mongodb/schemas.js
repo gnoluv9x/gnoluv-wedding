@@ -41,6 +41,7 @@ const INVOCATION = new Schema({
 const DATA_CONFIG = new Schema({
   male: {
     name: String,
+    qr: String,
     parent: {
       father: String,
       mother: String,
