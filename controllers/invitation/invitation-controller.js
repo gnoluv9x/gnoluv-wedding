@@ -43,6 +43,8 @@ class InvitationController extends BaseController {
     try {
       let invitee = await this._facade.getDetailInvitee(id);
       let config = await this._facade.getDefaultDataConfig();
+      console.log("============== Debug_here config ==============");
+      console.dir(config, { depth: null });
 
       if (!config) {
         return res.render('err/occurs-error', {

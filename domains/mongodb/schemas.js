@@ -78,6 +78,7 @@ const DATA_CONFIG = new Schema({
   },
   female: {
     name: String,
+    qr: String,
     parent: {
       father: String,
       mother: String,

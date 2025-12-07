@@ -63,13 +63,13 @@ const SeedDB = {
       time_start: {
         date: {
           lunar: {
-            day: "02",
-            month: "12",
+            day: "25",
+            month: "10",
             year: "2025"
           },
           day_of_week: "7",
           solar: {
-            day: "21",
+            day: "14",
             month: "12",
             year: "2025"
           }

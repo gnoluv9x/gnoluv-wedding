@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-  <title> Kính mời <%= (data.invitee !==null) ? data.invitee.name : "" %>
+  <title> Thiệp mời <%= (data.invitee !==null) ? data.invitee.name : "" %>
   </title>
 
   <meta proeperty="og:url" content="https://longdev.io.vn" />
@@ -17,9 +17,10 @@
   <meta property="og:image:height" content="702" />
   <meta property="fb:admins" content="100004574107394" />
   <meta property="og:updated_time" content="<%= +new Date() %>" />
-  <meta name="keywords" content='Kính mời <%= (data.invitee !== null) ? data.invitee.name : "" %>' />
-  <meta name="description" content="Sự hiện diện của quý vị là niềm vinh dự lớn cho gia đình Chúng tôi" />
+  <meta name="keywords" content='Thiệp mời <%= (data.invitee !== null) ? data.invitee.name : "" %>' />
+  <meta name="description" content="Trang & Long Wedding" />
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png" />
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="/assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
   <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
@@ -41,6 +42,135 @@
       opacity: 0.75;
       background-image: url('<%= data.cfg.female.bg %>');
       background-size: cover;
+      background-position: right;
+    }
+
+    /* Mobile scroll button */
+    #scroll-down-btn {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 28px;
+      background: transparent;
+      /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); */
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 11000;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      border: none;
+    }
+
+    #scroll-down-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #333;
+    }
+
+    /* Bounce animation */
+    @keyframes bounce-down {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    /* Apply animations to button */
+    #scroll-down-btn {
+      animation: bounce-down 2s infinite, pulse-ring 2s infinite;
+    }
+
+    /* iOS haptic feedback visual feedback */
+    #scroll-down-btn:active {
+      transform: translateX(-50%) scale(0.95);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      #scroll-down-btn {
+        display: flex;
+      }
+    }
+
+    /* Wedding-themed text animation: rainbow gradient + elegant glow */
+    .card-welcome-text {
+      font-family: wedding-font-vni;
+      font-size: 40px;
+      position: relative;
+      display: inline-block;
+      color: #2b2b2b;
+    }
+
+    .text-animation-wedd {
+      animation: rainbow-text 4s linear infinite, elegant-glow 3.5s ease-in-out infinite;
+      will-change: background-position, text-shadow;
+      background: linear-gradient(90deg,
+          #FF6B6B 0%,
+          #FF8C42 15%,
+          #FF6EC7 30%,
+          #A78BFA 45%,
+          #60A5FA 60%,
+          #34D399 75%,
+          #FBBF24 90%,
+          #FF6B6B 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes rainbow-text {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    @keyframes elegant-glow {
+      0% {
+        text-shadow: 0 0 10px rgba(255, 182, 193, 0.3),
+          0 0 20px rgba(255, 105, 180, 0.0);
+        opacity: 0.85;
+      }
+
+      50% {
+        text-shadow: 0 0 20px rgba(255, 182, 193, 0.6),
+          0 0 40px rgba(255, 105, 180, 0.35),
+          0 0 60px rgba(255, 192, 203, 0.2);
+        opacity: 1;
+      }
+
+      100% {
+        text-shadow: 0 0 10px rgba(255, 182, 193, 0.3),
+          0 0 20px rgba(255, 105, 180, 0.0);
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes light-shine {
+      0% {
+        background-position: -200% 0;
+      }
+
+      50% {
+        background-position: 100% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
     }
   </style>
 
@@ -48,22 +178,26 @@
 
 
 <body>
+  <audio id="player" autoplay loop>
+    <source src="/assets/audio/beauti2.mp3" type="audio/mp3">
+  </audio>
 
   <div id="wrapper">
     <div id="container">
+
       <section class="open-book">
-        <div class="card-welcome-main">
+        <div class="card-welcome-all">
           <div class="card-welcome">
-            <img class="bg-top-right" src="/assets/images/right-top.png" />
-            <img class="bg-bottom-left" src="/assets/images/right-top.png" />
+            <!-- <img class="bg-top-right" src="/assets/images/right-top.png" />
+            <img class="bg-bottom-left" src="/assets/images/right-top.png" /> -->
 
 
-            <div class="share-buttons">
+            <!-- <div class="share-buttons">
               <a style="padding-top: 5px" href="<%= data.cfg.female.location.map %>" target="_blank">
                 <div class="share-button">
                   <div class="share-button-secondary">
                     <div class="share-button-secondary-content">
-                      Open map
+                      Xem Map
                     </div>
                   </div>
                   <div class="share-button-primary">
@@ -71,28 +205,33 @@
                   </div>
                 </div>
               </a>
-            </div>
+            </div> -->
 
             <div class="wrap-card-welcome">
 
               <div class="card-welcome-header">
-                <div class="card-welcome-text vni">
-                  Wedding
+                <div class="card-welcome-text vni text-animation-wedd">
+                  Wedding Celebrating
                 </div>
-                <div class="card-welcome-date">
+                <!-- <div class="card-welcome-date">
                   <%= data.cfg.female.time_start.date.lunar.day %>
                   -
                   <%= data.cfg.female.time_start.date.lunar.month %>
                   -
                   <%= data.cfg.female.time_start.date.lunar.year %>
-                </div>
+                </div> -->
 
               </div>
 
-              <div class="card-welcome-invite-name vni">
-                <%= (data.mode==2 ? "Kính mời: " + data.invitee.name
-                  : "Kính mời ...................." ) %>
-              </div>
+              <marquee class="card-welcome-invite-name vni">
+                Chúng mình sắp bắt đầu một hành trình mới cùng nhau.
+                Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.
+                Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.
+                Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này.
+                <!-- <span>Vũ Long</span>
+                <span class="heart-container">❤️</span>
+                <span>Hà Trang</span> -->
+              </marquee>
             </div>
 
           </div>
@@ -100,9 +239,9 @@
             <img class="bg-top-right" src="/assets/images/right-top.png" />
             <img class="bg-bottom-left" src="/assets/images/right-top.png" />
 
-            <% if(data.invitee && data.invitee._id){ %>
+            <!-- <% if(data.invitee && data.invitee._id){ %>
             <a class="btn btn-primary btn-bottom-right" class="btn btn-success" href='/invocation/<%= data.invitee._id %>' target="_blank">Trả lời </a>
-            <% } %>
+            <% } %> -->
 
             <div class="card-wrap">
 
@@ -115,7 +254,7 @@
                 </div>
                 <div class="card-header-inviter">
                   Tới dự lễ thành hôn của 2 <%= (data.mode==2 ? data.invitee.level : "...." ) %>
-                  chúng tôi
+                  <%= data.invitee.us %>
                 </div>
               </div>
               <div class="card-header-name">
@@ -132,21 +271,24 @@
                         data.cfg.female.time_start.time.hour %> giờ
                   <%= data.cfg.female.time_start.time.minute %>"</span>
                 <div class="information-time">
-                  <span class="week vni">Thứ <%= data.cfg.female.time_start.date.day_of_week %>
-                  </span>
-                  <span class="day btn">
-                    <%= data.cfg.female.time_start.date.lunar.day %>
-                  </span>
-                  <span class="month vni">Tháng <%= data.cfg.female.time_start.date.lunar.month
-                          %></span>
+                  <div class="vni day_of_week">Chủ nhật</div>
+                  <div>
+                    <span class="week vni">Ngày</span>
+                    <span class="day btn">
+                      <%= data.cfg.female.time_start.date.solar.day %>
+                    </span>
+                    <span class="month vni">Tháng <%= data.cfg.female.time_start.date.solar.month %></span>
+                  </div>
                 </div>
-                <span class="detail-time">(Tức ngày <%=
-                        data.cfg.female.time_start.date.lunar.day %>/
-                  <%= data.cfg.female.time_start.date.lunar.month %>)</span>
-                <div style="padding-top:10px">Tại tự gia Nhà Gái</div>
-                <div class="address">
+                <span class="detail-time">(Tức ngày <%= data.cfg.female.time_start.date.lunar.day
+                        %>/
+                  <%= data.cfg.female.time_start.date.lunar.month %> âm lịch)</span>
+                <div style="padding-top:10px">Tại tư gia Nhà Gái</div>
+
+                <a class="address" style="padding-top: 5px" href="<%= data.cfg.female.location.map %>" target="_blank">
                   <%= data.cfg.female.location.text %>
-                </div>
+                  <i class="map-icon ti-location-pin"></i>
+                </a>
 
               </div>
               <div class="end-row"> ======================</div>
@@ -162,10 +304,10 @@
                     <span class="footer-header vni">Nhà Trai</span>
                     <div class="family-information">
                       <p class="family-name">
-                        <%= data.cfg.male.parent.father %>
+                        <%= data.cfg.female.parent.father %>
                       </p>
                       <p class="family-name">
-                        <%= data.cfg.male.parent.mother %>
+                        <%= data.cfg.female.parent.mother %>
                       </p>
                     </div>
                   </div>
@@ -183,21 +325,110 @@
                 </div>
               </div>
             </div>
+            <a href="<%= data.cfg.female.qr %>" class="qr-code-bank" target="_blank">
+              <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                <g>
+                  <g>
+                    <path d="M0,0v233.739h233.739V0H0z M200.348,200.348H33.391V33.391h166.957V200.348z" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect x="66.783" y="66.783" width="100.174" height="100.174" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path d="M278.261,0v233.739H512V0H278.261z M478.609,200.348H311.652V33.391h166.957V200.348z" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect x="345.043" y="66.783" width="100.174" height="100.174" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path d="M0,278.261V512h233.739V278.261H0z M200.348,478.609H33.391V311.652h166.957V478.609z" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect x="66.783" y="345.043" width="100.174" height="100.174" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <polygon points="345.043,311.652 345.043,278.261 278.261,278.261 278.261,512 345.043,512 345.043,478.609 311.652,478.609 
+			311.652,411.826 345.043,411.826 345.043,378.435 311.652,378.435 311.652,311.652 		" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect x="478.609" y="278.261" width="33.391" height="33.391" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <polygon points="478.609,356.174 478.609,478.609 445.217,478.609 445.217,512 512,512 512,356.174 		" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect x="378.435" y="278.261" width="66.783" height="33.391" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <polygon points="445.217,378.435 445.217,345.043 378.435,345.043 378.435,445.217 445.217,445.217 445.217,411.826 
+			411.826,411.826 411.826,378.435 		" />
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <rect x="378.435" y="478.609" width="33.391" height="33.391" />
+                  </g>
+                </g>
+              </svg>
+            </a>
           </div>
-        </div>
-        <footer>
+          </article>
+          <footer>
 
-          <ol id="page-numbers">
+            <ol id="page-numbers">
 
-            <li>1</li>
-            <li>2</li>
+              <li>1</li>
+              <li>2</li>
 
-          </ol>
-        </footer>
+            </ol>
+          </footer>
       </section>
+
     </div>
   </div>
 
+
+  <!-- Mobile scroll button (bottom center) -->
+  <button id="scroll-down-btn" aria-label="Scroll down" title="Scroll down">
+    <!-- chevron down SVG with gradient glossy effect -->
+    <svg width="800px" height="800px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chevronGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+          <stop offset="50%" style="stop-color:#f5f5f5;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:0.9" />
+        </linearGradient>
+        <filter id="chevronGlow">
+          <feGaussianBlur stdDeviation="0.5" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.85355 2.14645C3.65829 1.95118 3.34171 1.95118 3.14645 2.14645C2.95118 2.34171 2.95118 2.65829 3.14645 2.85355L7.14645 6.85355C7.34171 7.04882 7.65829 7.04882 7.85355 6.85355L11.8536 2.85355C12.0488 2.65829 12.0488 2.34171 11.8536 2.14645C11.6583 1.95118 11.3417 1.95118 11.1464 2.14645L7.5 5.79289L3.85355 2.14645ZM3.85355 8.14645C3.65829 7.95118 3.34171 7.95118 3.14645 8.14645C2.95118 8.34171 2.95118 8.65829 3.14645 8.85355L7.14645 12.8536C7.34171 13.0488 7.65829 13.0488 7.85355 12.8536L11.8536 8.85355C12.0488 8.65829 12.0488 8.34171 11.8536 8.14645C11.6583 7.95118 11.3417 7.95118 11.1464 8.14645L7.5 11.7929L3.85355 8.14645Z" fill="url(#chevronGradient)" filter="url(#chevronGlow)" />
+    </svg>
+  </button>
 
   <!-- END wrapper -->
   <!-- jQuery  -->
@@ -214,6 +445,305 @@
   <script src="/assets/js/base/notify.js"></script>
   <script src="/assets/js/live/invitation/fonts.handle.js"></script>
 
+  <!-- FIREWORKS: canvas + lightweight fireworks script -->
+  <canvas id="fireworks-canvas" style="position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
+  <script>
+    (function() {
+      const canvas = document.getElementById('fireworks-canvas');
+      const ctx = canvas.getContext('2d');
+      let w, h;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Particle {
+        constructor(x, y, vx, vy, color, life, opts) {
+          this.x = x;
+          this.y = y;
+          this.vx = vx;
+          this.vy = vy;
+          this.color = color;
+          this.life = life;
+          this.age = 0;
+          this.px = x; // previous pos for trail
+          this.py = y;
+          this.size = (opts && opts.size) || 2;
+          this.isRocket = opts && opts.rocket;
+        }
+        update(dt) {
+          // lưu vị trí trước khi cập nhật để vẽ trail
+          this.px = this.x;
+          this.py = this.y;
+          // vẫn giữ trọng lực nhẹ để rocket bắn cao, nhưng tăng tốc độ di chuyển
+          this.vy += 0.045;
+          // tăng hệ số nhân để di chuyển nhanh hơn
+          this.x += this.vx * dt * 22;
+          this.y += this.vy * dt * 22;
+          this.vx *= 0.995;
+          this.vy *= 0.995;
+          this.age += dt;
+        }
+        draw(ctx) {
+          ctx.globalCompositeOperation = 'lighter';
+          if (this.isRocket) {
+            // vẽ rocket dạng mảnh dài + hiệu ứng glow và trail
+            const angle = Math.atan2(this.vy, this.vx);
+            const len = Math.max(12, this.size * 6 + Math.hypot(this.vx, this.vy) * 6);
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(angle);
+
+            // trail (faded rectangle behind rocket)
+            const trailGrad = ctx.createLinearGradient(-len, 0, 0, 0);
+            trailGrad.addColorStop(0, 'rgba(255,200,100,0.0)');
+            trailGrad.addColorStop(0.4, 'rgba(255,160,60,0.12)');
+            trailGrad.addColorStop(1, 'rgba(255,120,30,0.3)');
+            ctx.fillStyle = trailGrad;
+            ctx.beginPath();
+            ctx.roundRect(-len, -this.size * 0.7, len * 0.9, this.size * 1.4, this.size);
+            ctx.fill();
+
+            // rocket body (bright head)
+            const headGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size * 4);
+            headGrad.addColorStop(0, 'rgba(255,255,255,1)');
+            headGrad.addColorStop(0.3, this.color || 'rgba(255,200,60,1)');
+            headGrad.addColorStop(1, 'rgba(255,200,60,0.0)');
+            ctx.fillStyle = headGrad;
+            ctx.beginPath();
+            ctx.arc(0, 0, this.size * 3.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+
+            // subtle motion streak (line from prev to current)
+            ctx.strokeStyle = 'rgba(255,200,80,0.25)';
+            ctx.lineWidth = Math.max(1, this.size * 1.2);
+            ctx.beginPath();
+            ctx.moveTo(this.px, this.py);
+            ctx.lineTo(this.x, this.y);
+            ctx.stroke();
+
+            // small glow at head position for extra brightness
+            ctx.fillStyle = 'rgba(255,220,140,0.12)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * 8, 0, Math.PI * 2);
+            ctx.fill();
+
+          } else {
+            // explosion spark (unchanged, small circle)
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, Math.max(0.6, 2 - this.age * 0.02), 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+
+      const rockets = [];
+      const particles = [];
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      // lightweight rocket that rises then explodes
+      function launchTo(x, y) {
+        const startX = x;
+        const startY = h + 10;
+        const vx = rand(-0.8, 0.8);
+        // tăng magnitude của vy để rocket bắn mạnh/higher (âm lớn hơn)
+        const vy = rand(-18, -28);
+        // đặt target cao hơn so với điểm chạm (bắn lên chút) và không vượt quá ngưỡng trên
+        const target = Math.max((y || h * 0.25) - 120, h * 0.12);
+        // tạo rocket với flag để vẽ dạng elongated + trail
+        rockets.push({
+          p: new Particle(startX, startY, vx, vy, '#FF2E2E', 0, {
+            rocket: true,
+            size: 2
+          }),
+          targetY: target
+        });
+      }
+
+      function explode(x, y) {
+        const colors = ['#ff4d4f', '#ff7a45', '#ffd666', '#73d13d', '#36cfc9', '#40a9ff', '#9254de'];
+        const count = 25 + Math.floor(rand(0, 35));
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          // tăng tốc độ mảnh vỡ để cảm giác mạnh mẽ hơn
+          const speed = rand(2.5, 6.5);
+          const vx = Math.cos(angle) * speed;
+          const vy = Math.sin(angle) * speed;
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          particles.push(new Particle(x, y, vx, vy, color, 1 + Math.random() * 1.5));
+        }
+      }
+
+      let last = performance.now();
+
+      function loop(now) {
+        const dt = Math.min(0.04, (now - last) / 1000);
+        last = now;
+        ctx.clearRect(0, 0, w, h);
+
+        for (let i = rockets.length - 1; i >= 0; i--) {
+          const obj = rockets[i];
+          const r = obj.p;
+          r.update(dt);
+          r.draw(ctx);
+          // explode when rocket reaches targetY or slows
+          if (r.y <= (obj.targetY || h * 0.25) || r.vy > -2.0) {
+            explode(r.x, r.y);
+            rockets.splice(i, 1);
+          }
+        }
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.update(dt);
+          const lifePct = p.age / (p.life || 1.5);
+          ctx.globalAlpha = Math.max(0, 1 - lifePct);
+          p.draw(ctx);
+          ctx.globalAlpha = 1;
+          if (p.age > (p.life * 0.9 + 0.2)) {
+            particles.splice(i, 1);
+          }
+        }
+
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+
+      // AUTO LAUNCH: tự động bắn pháo hoa theo khoảng thời gian
+      let autoTimer = setInterval(function() {
+        // chọn vị trí ngẫu nhiên nằm trong vùng giữa màn hình
+        const x = rand(w * 0.15, w * 0.85);
+        const y = rand(h * 0.12, h * 0.45);
+        const bursts = 1 + Math.floor(rand(0, 2)); // số rocket mỗi lần
+        for (let i = 0; i < bursts; i++) {
+          setTimeout(() => {
+            launchTo(x + rand(-80, 80), Math.max(h * 0.12, y + rand(-60, 60)));
+          }, i * 140);
+        }
+      }, 900);
+
+      // giữ/huỷ timer theo trạng thái tab
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        } else if (!autoTimer) {
+          autoTimer = setInterval(function() {
+            const x = rand(w * 0.15, w * 0.85);
+            const y = rand(h * 0.12, h * 0.45);
+            const bursts = 1 + Math.floor(rand(0, 3));
+            for (let i = 0; i < bursts; i++) {
+              setTimeout(() => {
+                launchTo(x + rand(-80, 80), Math.max(h * 0.12, y + rand(-60, 60)));
+              }, i * 140);
+            }
+          }, 900);
+        }
+      });
+
+      // trigger fireworks on click or touch anywhere (canvas has pointer-events:none)
+      let lastTrigger = 0;
+
+      function triggerAt(clientX, clientY) {
+        // throttle rapid taps
+        const now = Date.now();
+        if (now - lastTrigger < 80) return;
+        lastTrigger = now;
+        const rect = {
+          left: 0,
+          top: 0
+        }; // canvas is full-window
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+        // launch a few rockets towards the tapped point for nicer effect
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => launchTo(x + rand(-30, 30), y - rand(10, 60)), i * 80);
+        }
+      }
+
+      document.addEventListener('click', function(e) {
+        triggerAt(e.clientX, e.clientY);
+      }, {
+        passive: true
+      });
+
+      document.addEventListener('touchstart', function(e) {
+        if (!e.touches || e.touches.length === 0) return;
+        const t = e.touches[0];
+        triggerAt(t.clientX, t.clientY);
+      }, {
+        passive: true
+      });
+
+      // pause particle updates when not visible
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          // no-op (loop will still run but particles won't be added)
+        }
+      });
+    })();
+  </script>
+  <script>
+    (function() {
+      function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+      }
+      const btn = document.getElementById('scroll-down-btn');
+      if (!btn) return;
+
+      // show only on mobile
+      if (!isMobile()) {
+        btn.style.display = 'none';
+      } else {
+        btn.style.display = 'flex';
+      }
+
+      // scroll down one viewport height smoothly
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetY = window.scrollY + window.innerHeight;
+        window.scrollTo({
+          top: targetY,
+          behavior: 'smooth'
+        });
+      }, {
+        passive: true
+      });
+
+      // hide when near bottom, show otherwise
+      function updateVisibility() {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 60) {
+          btn.style.opacity = '0';
+          btn.style.pointerEvents = 'none';
+        } else {
+          if (isMobile()) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+          }
+        }
+      }
+      window.addEventListener('scroll', updateVisibility, {
+        passive: true
+      });
+      window.addEventListener('resize', updateVisibility, {
+        passive: true
+      });
+      updateVisibility();
+
+      window.addEventListener("click", () => {
+        document.getElementById("player").play();
+      });
+    })();
+  </script>
 </body>
 
 </html>
